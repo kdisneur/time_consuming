@@ -1,0 +1,9 @@
+%% -*- mode: erlang; -*-
+{ application, time_consuming, [
+    { description, "A time consuming logger app in command line" },
+    { vsn, "0.0.1" },
+    { modules, [] },
+    { registered, [] },
+    { applications, [kernel, stdlib] },
+    { env, [] }
+]}.

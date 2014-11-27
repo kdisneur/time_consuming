@@ -1,0 +1,2 @@
+-record(entry_record, { kind, hours, message, week=none }).
+-record(list_record,  { kind=list, week }).

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+current_dir=$(dirname $0)
+pushd ${current_dir}/../ebin &> /dev/null
+
+kind="$1"
+hours="$2"
+message="$3"
+week="$4"
+
+if [[ "${week}" -lt 0 ]]; then
+  week=$((-week))
+  erl -noshell -s time_consuming start -s init stop -kind "${kind}" -hours "${hours}" -message "${message}" -previous_week ${week}
+else
+  erl -noshell -s time_consuming start -s init stop -kind "${kind}" -hours "${hours}" -message "${message}" -week ${week}
+fi
+exit_code=$?
+
+popd &> /dev/null
+
+exit ${exit_code}
